@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1. (4 pts)
+# DONE: 1. (4 pts)
 #
 #   For this module, we are going to build off our Pet class that we created in
 #   m2 of the session 16 coding exercises.
@@ -27,8 +27,26 @@
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
 
+class Pet:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def __str__(self):
+        return f"Name: {self.name}, Age: {self.age}"
+
+    def speak(self):
+        print(f"{self.name}: *Happy Noises*")
+
+class Dog(Pet):
+    def fetch(self):
+        print(f"{self.name} ran to get the stick!")
+
+    def speak(self):
+        print(f"{self.name}: Bark! Bark! Bark!")
+
 ###############################################################################
-# TODO: 2. (4 pts)
+# DONE: 2. (4 pts)
 #
 #   Now, write your own class of whatever type of pet you wish.
 #
@@ -46,9 +64,31 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Cat(Pet):
+        def __init__(self, name, age, type, size):
+            self.name = name
+            self.age = age
+            self.type = type
+            self.size = size
+        
+        def __str__(self):
+            return f"Name: {self.name}, Age: {self.age}, Type: {self.type}, Size: {self.size} inches"
+        
+        def eat(self):
+            print(f"{self.name}! Your {self.age}, you need to eat!")
+            print(f"*{self.name} rushes to the food bowl*")
+        
+        def play(self):
+            print(f"{self.name}! Stop sleeping and play!")
+            print(f"*{self.name} yawns, looks at you, and proceeds back to sleep*")
+            print(f"*{self.name} thinks about their age being {self.age}, and concludes sleeping is easier for a cat their age*")
+
+        def measures(self):
+            print(f"You measure your cat and discover they are {self.size} inches")
+
 
 ###############################################################################
-# TODO: 3. (4 pts)
+# DONE: 3. (4 pts)
 #
 #   Now let's use our classes!
 #
@@ -72,3 +112,20 @@
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
 
+def dog_class():
+    myDog = Dog("Roscoe", 17)
+    print(myDog)
+    myDog.speak()
+    myDog.fetch()
+
+def cat_class():
+    myCat = Cat("Sammy", 18, "Tabby", 9.8)
+    print(myCat)
+    myCat.speak()
+    myCat.measures()
+    myCat.eat()
+
+def main():
+    dog_class()
+    cat_class()
+main()
